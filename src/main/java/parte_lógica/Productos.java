@@ -4,11 +4,13 @@ package parte_lógica;
  * @version versión 2, 28 de abril 2024*/
 public enum Productos {
     /**Constantes de la enumeración (productos disponibles)*/
-    COCACOLA("CocaCola", 1000),
-    SPRITE("Sprite", 800),
-    FANTA("Fanta", 600),
-    SNICKERS("Snickers", 500),
-    SUPER8("Super8", 300);
+    COCACOLA(1, "CocaCola", 1000),
+    SPRITE(2, "Sprite", 800),
+    FANTA(3, "Fanta", 600),
+    SNICKERS(4, "Snickers", 500),
+    SUPER8(5, "Super8", 300);
+    /**N es para la selección del producto*/
+    private final int N;
     /**Nombre del producto*/
     private final String nombre;
     /**Precio del producto*/
@@ -16,9 +18,15 @@ public enum Productos {
     /**Constructor de Productos
      * @param nombre String
      * @param precio int*/
-    Productos(String nombre, int precio) {
+    Productos(int N, String nombre, int precio) {
+        this.N = N;
         this.nombre = nombre;
         this.precio = precio;
+    }
+    /**Getter de N
+     * @return N*/
+    public int getN() {
+        return N;
     }
     /**Getter del nombre del producto
      * @return el nombre del producto*/

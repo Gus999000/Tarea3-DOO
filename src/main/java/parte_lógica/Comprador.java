@@ -11,10 +11,10 @@ class Comprador {
     /**Valor int que almacena el vuelto recibido*/
     private int vuelto = 0;
     /**Constructor de la clase Comprador
-     * El comprador recibe una moneda m, el número del producto a comprar y el expendedor donde lo va a comprar
-     * Se compra el producto con la función y se guarda el valor en P
-     * Si P es distinto de null, le asigna a saborProducto el valor correspondiente con getNombre
-     * Luego, saca las monedas del depósito de vuelto del expendedor y suma sus valores (100)
+     * El comprador recibe una moneda m, el número del producto a comprar y el expendedor donde lo va a comprar.
+     * Se compra el producto con el método y se guarda el valor en P.
+     * Si P es distinto de null, le asigna a saborProducto el valor correspondiente con getNombre.
+     * Luego, saca las monedas del depósito de vuelto del expendedor y suma sus valores (100).
      * @param m Moneda
      * @param numProducto int
      * @param exp Expendedor
