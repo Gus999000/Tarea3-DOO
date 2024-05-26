@@ -1,7 +1,7 @@
 package parte_lógica;
 /**Clase Comprador
  * @author Gustavo González
- * @version 3, 29 de abril 2024
+ * @version 4, 25 de mayo 2024
  * @see PagoIncorrectoException
  * @see NoHayProductoException
  * @see PagoInsuficienteException*/
@@ -22,7 +22,8 @@ class Comprador {
      * @throws NoHayProductoException puede arrojar esta excepción si el número del depósito es erróneo, no hay producto o no alcanza
      * @throws PagoInsuficienteException puede arrojar esta excepción si se quiere comprar un producto por un valor inferior al precio*/
     public Comprador(Moneda m, int numProducto, Expendedor exp) throws PagoIncorrectoException, NoHayProductoException, PagoInsuficienteException {
-        Producto P = exp.comprarProducto(m, numProducto);
+        exp.comprarProducto(m, numProducto);
+        Producto P = exp.getProducto();
         this.saborProducto = P != null ? P.getNombre() : "null";
         int V = 0;
         while(exp.getVuelto() != null) {
