@@ -4,6 +4,7 @@ package parte_gráfica;
  * @version versión 2, 26 de mayo 2024*/
 import javax.swing.JPanel;
 import javax.swing.JButton;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Graphics;
 import java.awt.Color;
@@ -11,7 +12,7 @@ public class PanelExpendedor extends JPanel {
     /**Constructor del panel del expendedor*/
     public PanelExpendedor() {
         super();
-        this.setSize(60,80);
+        this.setPreferredSize(new Dimension(400,600));
         this.setLayout(new GridLayout(3, 2));
         this.add(new JButton("CocaCola"));
         this.add(new JButton("Sprite"));
@@ -23,6 +24,6 @@ public class PanelExpendedor extends JPanel {
     public void paintComponent (Graphics g) {
         super.paintComponent(g);
         g.setColor(Color.blue);
-        g.fillRect(100,100,600,800);
+        g.fillRect(0,0,400,600);
     }
 }
