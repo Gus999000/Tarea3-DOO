@@ -3,7 +3,7 @@ package parte_lógica;
  * @author Gustavo González
  * @version 2, 26 de abril de 2024*/
 import java.util.ArrayList;
-class Deposito <T> {
+public class Deposito <T> {
     /**ArrayList para almacenar los objetos*/
     private ArrayList <T> items = new ArrayList<>();
     /**El constructor no es necesario*/

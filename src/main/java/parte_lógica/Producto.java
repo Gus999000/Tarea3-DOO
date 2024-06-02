@@ -2,7 +2,7 @@ package parte_lógica;
 /**Clase Producto
  * @author Gustavo Benítez
  * @version versión 1, 25 de abril 2024*/
-abstract class Producto {
+public abstract class Producto {
     /**Nombre del producto*/
     private String nombre;
     /**Precio del producto*/

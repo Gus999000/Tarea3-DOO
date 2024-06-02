@@ -2,7 +2,7 @@ package parte_lógica;
 /**Clase Moneda
  * @author Gustavo González
  * @version versión 3, 28 de abril 2024*/
-abstract class Moneda implements Comparable <Moneda> {
+public abstract class Moneda implements Comparable <Moneda> {
     /**Las monedas no tienen propiedades, el valor es retornando directamente el número*/
     public Moneda() {
     }

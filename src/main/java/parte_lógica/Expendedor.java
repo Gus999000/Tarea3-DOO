@@ -5,7 +5,7 @@ package parte_lógica;
  * @see PagoIncorrectoException
  * @see NoHayProductoException
  * @see PagoInsuficienteException*/
-class Expendedor {
+public class Expendedor {
     /**Se crean los depósitos de los productos*/
     private Deposito <CocaCola> coca;
     private Deposito <Sprite> sprite;

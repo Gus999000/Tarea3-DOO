@@ -5,7 +5,7 @@ package parte_lógica;
  * @see PagoIncorrectoException
  * @see NoHayProductoException
  * @see PagoInsuficienteException*/
-class Comprador {
+public class Comprador {
     /**String que almacena el sabor del producto*/
     private String saborProducto;
     /**Valor int que almacena el vuelto recibido*/
