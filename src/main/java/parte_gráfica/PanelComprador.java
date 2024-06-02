@@ -1,38 +1,49 @@
 package parte_gráfica;
 /**Panel de la clase comprador
  * @author Gustavo González
- * @version versión 3, 2 de junio de 2024*/
+ * @version versión 4, 2 de junio de 2024*/
+import parte_lógica.Comprador;
 import javax.swing.JPanel;
 import javax.swing.JButton;
-import javax.swing.ImageIcon;
 import java.awt.Dimension;
-import java.awt.BorderLayout;
-import java.awt.Image;
 import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 public class PanelComprador extends JPanel implements ActionListener {
-    /**Botón del comprador*/
+    /***/
+    private Comprador COMPRADOR;
+    /**Boton del comprador que abre una ventana con el producto que este tiene*/
+    JButton P;
+    /**Boton del comprador que abre la billetera*/
     JButton B;
     /**Constructor del panel del comprador*/
     public PanelComprador() {
         super();
-        this.setPreferredSize(new Dimension(400,765));
-        this.setLayout(new BorderLayout());
-        ImageIcon ComIcon = new ImageIcon("slayer.png");
-        this.B = new JButton(ComIcon);
-        B.setBounds(0, 0, this.getWidth(), this.getHeight());
-        B.setIcon(new ImageIcon(ComIcon.getImage().getScaledInstance(400, 765, Image.SCALE_SMOOTH)));
-        this.add(B, BorderLayout.CENTER);
+        this.setPreferredSize(new Dimension(400,800));
+        this.setLayout(null);
+        this.P = new JButton("Producto");
+        this.B = new JButton("Billetera");
+        this.add(P);
+        this.add(B);
+        P.setBounds(100, 500, 100, 100);
+        B.setBounds(200, 500, 100, 100);
+        P.addActionListener(this);
         B.addActionListener(this);
     }
     @Override
-    public void paintComponent (Graphics g) {
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        //ImageIcon comIcon = new ImageIcon(getClass().getResource("slayer.png"));
+        //comIcon.paintIcon(this, g, 0, 0);
+        //g.drawImage(comIcon.getImage().getScaledInstance(400, 800, Image.SCALE_SMOOTH), 0, 0, 400, 800, this);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == B) {
-            System.out.println("POTO");
+        if(e.getSource() == P) {
+            new VentanaProducto();
+        }
+        else if (e.getSource() == B) {
+            new VentanaBilletera();
         }
     }
 }
