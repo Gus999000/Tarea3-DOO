@@ -1,49 +1,68 @@
 package parte_gráfica;
 /**Panel de la clase expendedor
  * @author Gustavo González
- * @version versión 3, 2 de junio de 2024*/
+ * @version versión 4, 2 de junio de 2024*/
 import parte_lógica.Expendedor;
 import javax.swing.JPanel;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.Image;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
 public class PanelExpendedor extends JPanel implements ActionListener {
     /**Instancia de expendedor*/
-    private Expendedor EXP;
+    private Expendedor EXPENDEDOR;
+    /**Boton del comprador que abre una ventana con el producto que este tiene*/
+    JButton C;
+    /**Boton del comprador que abre una ventana con el producto que este tiene*/
+    JButton S;
+    /**Boton del comprador que abre una ventana con el producto que este tiene*/
+    JButton F;
+    /**Boton del comprador que abre una ventana con el producto que este tiene*/
+    JButton SS;
+    /**Boton del comprador que abre una ventana con el producto que este tiene*/
+    JButton S8;
     /**Constructor del panel del expendedor*/
     public PanelExpendedor() {
         super();
-        this.EXP = new Expendedor(5);
-        this.setBackground(Color.blue);
+        this.EXPENDEDOR = new Expendedor(5);
         this.setLayout(null);
-        ImageIcon CIcon = new ImageIcon("coca_cola.png");
-        JButton C = new JButton(new ImageIcon(CIcon.getImage().getScaledInstance(500, 100, Image.SCALE_SMOOTH)));
-        C.setBounds(25, 75, 500, 100);
+        this.C = new JButton("CocaCola");
+        this.S = new JButton("Sprite");
+        this.F = new JButton("Fanta");
+        this.SS = new JButton("Snickers");
+        this.S8 = new JButton("Super8");
         this.add(C);
-        C.addActionListener(this);
-        JButton S = new JButton("Sprite");
-        S.setBounds(575, 75, 500, 100);
         this.add(S);
-        JButton F = new JButton("Fanta");
-        F.setBounds(25, 200, 500, 100);
         this.add(F);
-        JButton SS = new JButton("Snickers");
-        SS.setBounds(575, 200, 500, 100);
         this.add(SS);
-        JButton S8 = new JButton("Super8");
-        S8.setBounds(300, 325, 500, 100);
         this.add(S8);
+        C.setBounds(25, 75, 500, 100);
+        S.setBounds(575, 75, 500, 100);
+        F.setBounds(25, 200, 500, 100);
+        SS.setBounds(575, 200, 500, 100);
+        S8.setBounds(300, 325, 500, 100);
+        C.addActionListener(this);
+        S.addActionListener(this);
+        F.addActionListener(this);
+        SS.addActionListener(this);
+        S8.addActionListener(this);
     }
     @Override
-    public void paintComponent (Graphics g) {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        this.setBackground(Color.blue);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == C) {
+        }
+        else if (e.getSource() == S) {
+        }
+        else if (e.getSource() == F) {
+        }
+        else if (e.getSource() == SS) {
+        }
+        else if (e.getSource() == S8) {
+        }
     }
 }
