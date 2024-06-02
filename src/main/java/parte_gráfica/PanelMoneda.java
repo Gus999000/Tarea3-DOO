@@ -1,4 +1,5 @@
 package parte_gráfica;
-
-public class PanelMoneda {
+/***/
+import javax.swing.JPanel;
+public class PanelMoneda extends JPanel {
 }

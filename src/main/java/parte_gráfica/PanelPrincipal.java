@@ -1,7 +1,7 @@
 package parte_gráfica;
 /**Panel principal de la aplicación
  * @author Gustavo González
- * @version 2, 26 de mayo de 2024*/
+ * @version 3, 2 de junio de 2024*/
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,7 +14,6 @@ public class PanelPrincipal extends JPanel {
     /**Constructor del panel principal*/
     public PanelPrincipal () {
         super();
-        this.setSize(1500,1000);
         this.setLayout(new BorderLayout());
         this.add(new PanelComprador(), BorderLayout.EAST);
         this.add(new PanelExpendedor(), BorderLayout.CENTER);
