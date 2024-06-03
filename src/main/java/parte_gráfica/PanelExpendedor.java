@@ -2,12 +2,10 @@ package parte_gráfica;
 /**Panel de la clase expendedor
  * @author Gustavo González
  * @version versión 4, 2 de junio de 2024*/
-import parte_lógica.Expendedor;
-import javax.swing.JPanel;
-import javax.swing.JButton;
+import parte_lógica.*;
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.event.*;
 public class PanelExpendedor extends JPanel implements ActionListener {
     /**Instancia de expendedor*/
     private Expendedor EXPENDEDOR;
@@ -55,6 +53,17 @@ public class PanelExpendedor extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == C) {
+            try {
+                EXPENDEDOR.comprarProducto(new Moneda100(), Productos.COCACOLA.getN());
+            }
+            catch (PagoIncorrectoException ex) {
+                throw new RuntimeException(ex);
+            }
+            catch (NoHayProductoException ex) {
+                throw new RuntimeException(ex);
+            } catch (PagoInsuficienteException ex) {
+                throw new RuntimeException(ex);
+            }
         }
         else if (e.getSource() == S) {
         }

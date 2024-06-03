@@ -1,16 +1,13 @@
 package parte_gráfica;
 /**Panel de la clase comprador
  * @author Gustavo González
- * @version versión 4, 2 de junio de 2024*/
-import parte_lógica.Comprador;
-import javax.swing.JPanel;
-import javax.swing.JButton;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+ * @version versión 5, 3 de junio de 2024*/
+import parte_lógica.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 public class PanelComprador extends JPanel implements ActionListener {
-    /***/
+    /**Instancia de comprador de la parte lógica*/
     private Comprador COMPRADOR;
     /**Boton del comprador que abre una ventana con el producto que este tiene*/
     JButton P;
@@ -33,17 +30,23 @@ public class PanelComprador extends JPanel implements ActionListener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        //ImageIcon comIcon = new ImageIcon(getClass().getResource("slayer.png"));
-        //comIcon.paintIcon(this, g, 0, 0);
-        //g.drawImage(comIcon.getImage().getScaledInstance(400, 800, Image.SCALE_SMOOTH), 0, 0, 400, 800, this);
+        ImageIcon comIcon = new ImageIcon(getClass().getClassLoader().getResource("slayer_trucho.png"));
+        g.drawImage(comIcon.getImage()/*.getScaledInstance(400, 800, Image.SCALE_SMOOTH)*/, 0, 0, null);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == P) {
-            new VentanaProducto();
+            //COMPRADOR.getSaborProducto();
+            JFrame VentanaProducto = new JFrame();
+            VentanaProducto.setSize(500, 400);
+            VentanaProducto.setTitle("Producto");
+            VentanaProducto.setVisible(true);
         }
         else if (e.getSource() == B) {
-            new VentanaBilletera();
+            JFrame VentanaBilletera = new JFrame();
+            VentanaBilletera.setSize(500, 400);
+            VentanaBilletera.setTitle("Billetera");
+            VentanaBilletera.setVisible(true);
         }
     }
 }
