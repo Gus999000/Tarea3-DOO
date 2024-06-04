@@ -1,7 +1,7 @@
 package parte_gráfica;
 /**Panel de la clase comprador
  * @author Gustavo González
- * @version versión 5, 3 de junio de 2024*/
+ * @version versión 6, 3 de junio de 2024*/
 import parte_lógica.*;
 import javax.swing.*;
 import java.awt.*;
@@ -30,8 +30,8 @@ public class PanelComprador extends JPanel implements ActionListener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        ImageIcon comIcon = new ImageIcon(getClass().getClassLoader().getResource("slayer_trucho.png"));
-        g.drawImage(comIcon.getImage()/*.getScaledInstance(400, 800, Image.SCALE_SMOOTH)*/, 0, 0, null);
+        ImageIcon compradorIcon = new ImageIcon(getClass().getClassLoader().getResource("slayer.png"));
+        g.drawImage(compradorIcon.getImage(), 0, 0, null);
     }
     @Override
     public void actionPerformed(ActionEvent e) {

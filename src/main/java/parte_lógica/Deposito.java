@@ -2,7 +2,7 @@ package parte_lógica;
 /**Deposito de tipo genérico
  * @author Gustavo González
  * @version 2, 26 de abril de 2024*/
-import java.util.ArrayList;
+import java.util.*;
 public class Deposito <T> {
     /**ArrayList para almacenar los objetos*/
     private ArrayList <T> items = new ArrayList<>();
