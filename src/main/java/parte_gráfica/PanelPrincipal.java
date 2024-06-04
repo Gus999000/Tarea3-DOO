@@ -14,7 +14,7 @@ public class PanelPrincipal extends JPanel {
         super();
         this.setLayout(new BorderLayout());
         this.com = new PanelComprador();
-        this.exp = new PanelExpendedor();
+        this.exp = new PanelExpendedor(5);
         this.add(com, BorderLayout.EAST);
         this.add(exp, BorderLayout.CENTER);
         this.setBackground(Color.white);
