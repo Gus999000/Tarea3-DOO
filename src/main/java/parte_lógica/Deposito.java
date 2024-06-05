@@ -19,6 +19,11 @@ public class Deposito <T> {
         }
         return null;
     }
+    /**Getter del Deposito, solo hace "get"
+     * @return el objeto en el index i*/
+    public T get(int i) {
+        return items.get(i);
+    }
     /**Añade un objeto del tipo <T> al Deposito
      * @param item T*/
     public void add(T item) {

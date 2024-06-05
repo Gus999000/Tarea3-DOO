@@ -1,7 +1,7 @@
 package parte_gráfica;
 /**Panel de la clase expendedor
  * @author Gustavo González
- * @version versión 5, 3 de junio de 2024*/
+ * @version versión 6, 5 de junio de 2024*/
 import parte_lógica.*;
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +19,7 @@ public class PanelExpendedor extends JPanel implements ActionListener {
     JButton SS;
     /**Boton del expendedor (Super8)*/
     JButton S8;
-    /**Boton del expendedor (M)*/
+    /**Boton del expendedor (Monedas)*/
     JButton M;
     /**Constructor del panel del expendedor*/
     public PanelExpendedor(int numProductos) {
@@ -31,21 +31,25 @@ public class PanelExpendedor extends JPanel implements ActionListener {
         this.F = new JButton("Fanta");
         this.SS = new JButton("Snickers");
         this.S8 = new JButton("Super8");
+        this.M = new JButton("Monedas compra");
         this.add(C);
         this.add(S);
         this.add(F);
         this.add(SS);
         this.add(S8);
+        this.add(M);
         C.setBounds(25, 25, 500, 100);
         S.setBounds(575, 25, 500, 100);
         F.setBounds(25, 150, 500, 100);
         SS.setBounds(575, 150, 500, 100);
         S8.setBounds(300, 275, 500, 100);
+        M.setBounds(25, 275, 100, 100);
         C.addActionListener(this);
         S.addActionListener(this);
         F.addActionListener(this);
         SS.addActionListener(this);
         S8.addActionListener(this);
+        M.addActionListener(this);
     }
     @Override
     public void paintComponent(Graphics g) {
@@ -173,6 +177,11 @@ public class PanelExpendedor extends JPanel implements ActionListener {
                 VentanaProducto.setTitle("PagoInsuficienteException");
                 VentanaProducto.setVisible(true);
             }
+        }
+        else if (e.getSource() == M) {
+            JFrame MonedasCompra = new JFrame("Monedas compra");
+            MonedasCompra.setSize(500, 200);
+            MonedasCompra.setVisible(true);
         }
     }
 }
