@@ -20,7 +20,7 @@ public class Expendedor {
     private Producto P;
     /**Depósito de monedas recibidas en la compra*/
     private Deposito <Moneda> monCompra;
-    /**El constructor llena "mágicamente" todos los depósitos de productos con la misma cantidad ingresada (numProductos), llena el depósito de monedas del expendedor con 20 monedas de 100 y deja P nulo, a su vez inicializa el depósito de vuelto y el de compra
+    /**El constructor llena "mágicamente" todos los depósitos de productos con la misma cantidad ingresada (numProductos), llena el depósito de monedas del expendedor con 50 monedas de 100 y deja P nulo, a su vez inicializa el depósito de vuelto y el de compra
      * @param numProductos int*/
     public Expendedor(int numProductos) {
         this.coca = new Deposito <CocaCola>();
@@ -43,7 +43,7 @@ public class Expendedor {
         this.DepExp = new Deposito <Moneda>();
         this.monVu = new Deposito <Moneda>();
         Moneda100 MonExp = new Moneda100();
-        for (int i = 0; i < 20; i = i + 1) {
+        for (int i = 0; i < 50; i = i + 1) {
             DepExp.add(MonExp);
         }
         this.P = null;
