@@ -21,6 +21,12 @@ public class PanelExpendedor extends JPanel implements ActionListener {
     JButton S8;
     /**Boton del expendedor (Monedas)*/
     JButton M;
+    /**Se crean los depósitos de los paneles de los productos*/
+    private Deposito <PanelProducto> PCOCACOLA;
+    private Deposito <PanelProducto> PSPRITE;
+    private Deposito <PanelProducto> PFANTA;
+    private Deposito <PanelProducto> PSNICKERS;
+    private Deposito <PanelProducto> PSUPER8;
     /**Constructor del panel del expendedor*/
     public PanelExpendedor(int numProductos) {
         super();
@@ -50,6 +56,41 @@ public class PanelExpendedor extends JPanel implements ActionListener {
         SS.addActionListener(this);
         S8.addActionListener(this);
         M.addActionListener(this);
+        this.PCOCACOLA = new Deposito <PanelProducto>();
+        this.PSPRITE = new Deposito <PanelProducto>();
+        this.PFANTA = new Deposito <PanelProducto>();
+        this.PSNICKERS = new Deposito <PanelProducto>();
+        this.PSUPER8 = new Deposito <PanelProducto>();
+        for(int i = 0; i < numProductos; i = i + 1) {
+            PCOCACOLA.add(new PanelProducto(new CocaCola()));
+        }
+        for(int i = 0; i < numProductos; i = i + 1) {
+            PSPRITE.add(new PanelProducto(new Sprite()));
+        }
+        for(int i = 0; i < numProductos; i = i + 1) {
+            PFANTA.add(new PanelProducto(new Fanta()));
+        }
+        for(int i = 0; i < numProductos; i = i + 1) {
+            PSNICKERS.add(new PanelProducto(new Snickers()));
+        }
+        for(int i = 0; i < numProductos; i = i + 1) {
+            PSUPER8.add(new PanelProducto(new Super8()));
+        }
+        for(int i = 0; i < numProductos; i = i + 1) {
+            this.add(PCOCACOLA.get(i)).setBounds(25 + i * 100, 400, 100, 100);
+        }
+        for(int i = 0; i < numProductos; i = i + 1) {
+            this.add(PSPRITE.get(i)).setBounds(575 + i * 100, 400, 100, 100);
+        }
+        for(int i = 0; i < numProductos; i = i + 1) {
+            this.add(PFANTA.get(i)).setBounds(25 + i * 100, 525, 100, 100);
+        }
+        for(int i = 0; i < numProductos; i = i + 1) {
+            this.add(PSNICKERS.get(i)).setBounds(575 + i * 100, 525, 100, 100);
+        }
+        for(int i = 0; i < numProductos; i = i + 1) {
+            this.add(PSUPER8.get(i)).setBounds(300 + i * 100, 650, 100, 100);
+        }
     }
     @Override
     public void paintComponent(Graphics g) {

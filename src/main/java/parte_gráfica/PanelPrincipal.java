@@ -5,9 +5,9 @@ package parte_gráfica;
 import javax.swing.*;
 import java.awt.*;
 public class PanelPrincipal extends JPanel {
-    /***/
+    /**Instancia del panel del comprador*/
     private PanelComprador com;
-    /***/
+    /**Instancia del panel del expendedor*/
     private PanelExpendedor exp;
     /**Constructor del panel principal*/
     public PanelPrincipal () {

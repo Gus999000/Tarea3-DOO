@@ -43,7 +43,21 @@ public class PanelComprador extends JPanel implements ActionListener {
             Billetera.add(new PanelMoneda(new Moneda1000()));
         }
         this.VentanaProducto = new JFrame();
+        VentanaProducto.setSize(500, 400);
+        VentanaProducto.setTitle("Producto");
         this.VentanaBilletera = new JFrame();
+        VentanaBilletera.setSize(500, 400);
+        VentanaBilletera.setTitle("Billetera");
+        VentanaBilletera.setLayout(null);
+        VentanaBilletera.add(Billetera.get(0));
+        VentanaBilletera.add(Billetera.get(1)).setBounds(100, 0, 100, 100);
+        VentanaBilletera.add(Billetera.get(2)).setBounds(200, 0, 100, 100);
+        VentanaBilletera.add(Billetera.get(3)).setBounds(0, 100, 100, 100);
+        VentanaBilletera.add(Billetera.get(4)).setBounds(100, 100, 100, 100);
+        VentanaBilletera.add(Billetera.get(5)).setBounds(200, 100, 100, 100);
+        VentanaBilletera.add(Billetera.get(6)).setBounds(0, 200, 100, 100);
+        VentanaBilletera.add(Billetera.get(7)).setBounds(100, 200, 100, 100);
+        VentanaBilletera.add(Billetera.get(8)).setBounds(200, 200, 100, 100);
     }
     @Override
     public void paintComponent(Graphics g) {
@@ -55,23 +69,9 @@ public class PanelComprador extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == P) {
             COMPRADOR.getSaborProducto();
-            VentanaProducto.setSize(500, 400);
-            VentanaProducto.setTitle("Producto");
             VentanaProducto.setVisible(true);
         }
         else if (e.getSource() == B) {
-            VentanaBilletera.setSize(500, 400);
-            VentanaBilletera.setTitle("Billetera");
-            VentanaBilletera.setLayout(null);
-            VentanaBilletera.add(Billetera.get(0));
-            VentanaBilletera.add(Billetera.get(1)).setBounds(100, 0, 100, 100);
-            VentanaBilletera.add(Billetera.get(2)).setBounds(200, 0, 100, 100);
-            VentanaBilletera.add(Billetera.get(3)).setBounds(0, 100, 100, 100);
-            VentanaBilletera.add(Billetera.get(4)).setBounds(100, 100, 100, 100);
-            VentanaBilletera.add(Billetera.get(5)).setBounds(200, 100, 100, 100);
-            VentanaBilletera.add(Billetera.get(6)).setBounds(0, 200, 100, 100);
-            VentanaBilletera.add(Billetera.get(7)).setBounds(100, 200, 100, 100);
-            VentanaBilletera.add(Billetera.get(8)).setBounds(200, 200, 100, 100);
             /*remove();
             revalidate();
             repaint();*/
