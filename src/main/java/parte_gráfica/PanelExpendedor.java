@@ -21,6 +21,8 @@ public class PanelExpendedor extends JPanel implements ActionListener {
     JButton S8;
     /**Boton del expendedor (Monedas)*/
     JButton M;
+    /**Boton del expendedor (Producto)*/
+    JButton P;
     /**Se crean los depósitos de los paneles de los productos*/
     private Deposito <PanelProducto> PCOCACOLA;
     private Deposito <PanelProducto> PSPRITE;
@@ -38,24 +40,28 @@ public class PanelExpendedor extends JPanel implements ActionListener {
         this.SS = new JButton("Snickers");
         this.S8 = new JButton("Super8");
         this.M = new JButton("Monedas compra");
+        this.P = new JButton("Producto");
         this.add(C);
         this.add(S);
         this.add(F);
         this.add(SS);
         this.add(S8);
         this.add(M);
+        this.add(P);
         C.setBounds(25, 25, 500, 100);
         S.setBounds(575, 25, 500, 100);
         F.setBounds(25, 150, 500, 100);
         SS.setBounds(575, 150, 500, 100);
         S8.setBounds(300, 275, 500, 100);
         M.setBounds(25, 275, 100, 100);
+        P.setBounds(25, 650, 100, 100);
         C.addActionListener(this);
         S.addActionListener(this);
         F.addActionListener(this);
         SS.addActionListener(this);
         S8.addActionListener(this);
         M.addActionListener(this);
+        P.addActionListener(this);
         this.PCOCACOLA = new Deposito <PanelProducto>();
         this.PSPRITE = new Deposito <PanelProducto>();
         this.PFANTA = new Deposito <PanelProducto>();
