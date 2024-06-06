@@ -1,7 +1,7 @@
 package parte_gráfica;
 /**Panel de la clase comprador
  * @author Gustavo González
- * @version versión 7, 5 de junio de 2024*/
+ * @version versión 8, 5 de junio de 2024*/
 import parte_lógica.*;
 import javax.swing.*;
 import java.awt.*;
@@ -10,15 +10,17 @@ public class PanelComprador extends JPanel implements ActionListener {
     /**Instancia de comprador de la parte lógica*/
     private Comprador COMPRADOR;
     /**Boton del comprador que abre una ventana con el producto que este tiene*/
-    JButton P;
+    private JButton P;
     /**Boton del comprador que abre la billetera*/
-    JButton B;
+    private JButton B;
     /**Billetera del comprador*/
     private Deposito <PanelMoneda> Billetera;
     /**Ventana con el producto que tiene el comprador*/
-    JFrame VentanaProducto;
+    private JFrame VentanaProducto;
     /**Ventana con las monedas que tiene el comprador*/
-    JFrame VentanaBilletera;
+    private JFrame VentanaBilletera;
+    /**Producto comprado*/
+    private PanelProducto ProductoComprado = null;
     /**Constructor del panel del comprador*/
     public PanelComprador() {
         super();
@@ -43,21 +45,19 @@ public class PanelComprador extends JPanel implements ActionListener {
             Billetera.add(new PanelMoneda(new Moneda1000()));
         }
         this.VentanaProducto = new JFrame();
-        VentanaProducto.setSize(500, 400);
+        VentanaProducto.setSize(100, 125);
         VentanaProducto.setTitle("Producto");
         this.VentanaBilletera = new JFrame();
-        VentanaBilletera.setSize(500, 400);
+        VentanaBilletera.setSize(900, 150);
         VentanaBilletera.setTitle("Billetera");
         VentanaBilletera.setLayout(null);
-        VentanaBilletera.add(Billetera.get(0));
-        VentanaBilletera.add(Billetera.get(1)).setBounds(100, 0, 100, 100);
-        VentanaBilletera.add(Billetera.get(2)).setBounds(200, 0, 100, 100);
-        VentanaBilletera.add(Billetera.get(3)).setBounds(0, 100, 100, 100);
-        VentanaBilletera.add(Billetera.get(4)).setBounds(100, 100, 100, 100);
-        VentanaBilletera.add(Billetera.get(5)).setBounds(200, 100, 100, 100);
-        VentanaBilletera.add(Billetera.get(6)).setBounds(0, 200, 100, 100);
-        VentanaBilletera.add(Billetera.get(7)).setBounds(100, 200, 100, 100);
-        VentanaBilletera.add(Billetera.get(8)).setBounds(200, 200, 100, 100);
+        for(int i = 0; i < 9; i = i + 1) {
+            VentanaBilletera.add(Billetera.get(i)).setBounds(i * 100, 0, 100, 100);
+        }
+    }
+    /**Método para actualizar el producto comprado*/
+    public void updateProductoComprado(PanelProducto ProductoComprado) {
+        this.ProductoComprado = ProductoComprado;
     }
     @Override
     public void paintComponent(Graphics g) {
@@ -68,13 +68,10 @@ public class PanelComprador extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == P) {
-            COMPRADOR.getSaborProducto();
+            VentanaProducto.add(ProductoComprado);
             VentanaProducto.setVisible(true);
         }
         else if (e.getSource() == B) {
-            /*remove();
-            revalidate();
-            repaint();*/
             VentanaBilletera.setVisible(true);
         }
     }

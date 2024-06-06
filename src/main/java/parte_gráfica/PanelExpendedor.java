@@ -1,7 +1,7 @@
 package parte_gráfica;
 /**Panel de la clase expendedor
  * @author Gustavo González
- * @version versión 7, 5 de junio de 2024*/
+ * @version versión 8, 5 de junio de 2024*/
 import parte_lógica.*;
 import javax.swing.*;
 import java.awt.*;
@@ -10,21 +10,21 @@ public class PanelExpendedor extends JPanel implements ActionListener {
     /**Instancia de expendedor*/
     private Expendedor EXPENDEDOR;
     /**Boton del expendedor (CocaCola)*/
-    JButton C;
+    private JButton C;
     /**Boton del expendedor (Sprite)*/
-    JButton S;
+    private JButton S;
     /**Boton del expendedor (Fanta)*/
-    JButton F;
+    private JButton F;
     /**Boton del expendedor (Snickers)*/
-    JButton SS;
+    private JButton SS;
     /**Boton del expendedor (Super8)*/
-    JButton S8;
+    private JButton S8;
     /**Boton del expendedor (Monedas)*/
-    JButton M;
+    private JButton M;
     /**Boton del expendedor (Producto)*/
-    JButton P;
+    private JButton P;
     /**Boton del expendedor (Refill)*/
-    JButton R;
+    private JButton R;
     /**Se crean los depósitos de los paneles de los productos*/
     private Deposito <PanelProducto> PCOCACOLA;
     private Deposito <PanelProducto> PSPRITE;
@@ -32,18 +32,21 @@ public class PanelExpendedor extends JPanel implements ActionListener {
     private Deposito <PanelProducto> PSNICKERS;
     private Deposito <PanelProducto> PSUPER8;
     /**Ints para gestionar los depósitos*/
-    int numProductos;
-    int DC = 0;
-    int DS = 0;
-    int DF = 0;
-    int DSS = 0;
-    int DS8 = 0;
-    /**Producto comprado o entregado;*/
-    PanelProducto ProductoComprado = null;
+    private int numProductos;
+    private int DC = 0;
+    private int DS = 0;
+    private int DF = 0;
+    private int DSS = 0;
+    private int DS8 = 0;
+    /**PanelCommunicator para la comunicación entre paneles*/
+    private PanelCommunicator communicator;
+    /**Producto comprado o entregado*/
+     private PanelProducto ProductoComprado = null;
     /**Constructor del panel del expendedor*/
-    public PanelExpendedor(int numProductos) {
+    public PanelExpendedor(int numProductos, PanelCommunicator communicator) {
         super();
         this.numProductos = numProductos;
+        this.communicator = communicator;
         this.EXPENDEDOR = new Expendedor(numProductos);
         this.setLayout(null);
         this.C = new JButton("CocaCola");
@@ -281,6 +284,8 @@ public class PanelExpendedor extends JPanel implements ActionListener {
             VentanaProducto.setSize(100, 125);
             VentanaProducto.setTitle("Producto");
             VentanaProducto.add(ProductoComprado);
+            PanelProducto ProductoCompradoX = this.ProductoComprado;
+            communicator.ProductoComprado_expTocom(ProductoCompradoX);
             VentanaProducto.setVisible(true);
         }
         else if (e.getSource() == R) {

@@ -1,10 +1,10 @@
 package parte_gráfica;
 /**Panel principal de la aplicación
  * @author Gustavo González
- * @version 5, 3 de junio de 2024*/
+ * @version 6, 5 de junio de 2024*/
 import javax.swing.*;
 import java.awt.*;
-public class PanelPrincipal extends JPanel {
+public class PanelPrincipal extends JPanel implements PanelCommunicator {
     /**Instancia del panel del comprador*/
     private PanelComprador com;
     /**Instancia del panel del expendedor*/
@@ -14,9 +14,13 @@ public class PanelPrincipal extends JPanel {
         super();
         this.setLayout(new BorderLayout());
         this.com = new PanelComprador();
-        this.exp = new PanelExpendedor(5);
+        this.exp = new PanelExpendedor(5, this);
         this.add(com, BorderLayout.EAST);
         this.add(exp, BorderLayout.CENTER);
         this.setBackground(Color.white);
+    }
+    @Override
+    public void ProductoComprado_expTocom(PanelProducto ProductoComprado) {
+        com.updateProductoComprado(ProductoComprado);
     }
 }
