@@ -1,6 +1,6 @@
 package parte_gráfica;
 /**Panel de la clase moneda
- * @author Gustavo González
+ * @author Gustavo Benítez
  * @version versión 1, 5 de junio de 2024*/
 import parte_lógica.*;
 import javax.swing.*;
